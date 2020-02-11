@@ -1,35 +1,42 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using System.Diagnostics;
+using TechnicalTestApp.DataAccessLayer;
 using TechnicalTestApp.Database;
-using TechnicalTestApp.Models;
+using TechnicalTestApp.ViewModels;
 
 namespace TechnicalTestApp.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly DatabaseContext _myDbContext = new DatabaseContext();
+        private CustomerAccessMethods CustomerAccessMethods;
+        private InvoiceAccessMethods InvoiceAccessMethods;
 
         public HomeController(ILogger<HomeController> logger)
-        {
+        {            
+            CustomerAccessMethods = new CustomerAccessMethods(new DatabaseContext());
+            InvoiceAccessMethods = new InvoiceAccessMethods(new DatabaseContext());
             _logger = logger;
         }
 
         public IActionResult Index()
         {
-            var invoice = _myDbContext.Invoices.FirstOrDefault();
-            var customer = _myDbContext.Customers.FirstOrDefault();
-            return View();
+            var homeViewModel = new HomeViewModel()
+            {
+                TotalPaidInvoiceCount = InvoiceAccessMethods.GetSumOfInvoicesHeld(true),
+                PaidInvoiceTotal = InvoiceAccessMethods.GetTotalFundsInvoiced(),
+                Customers = CustomerAccessMethods.GetCustomers()
+            };
+
+            return View(homeViewModel);
         }
 
-        public IActionResult Privacy()
+        [Route("Home/Address/{customerId}")]
+        public string GetCustomerAddress(int customerId)
         {
-            return View();
+            //TODO: wire this up to a db method which gets customer address
+            return "12 Daniels Walk";
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
