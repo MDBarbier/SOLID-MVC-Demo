@@ -3,6 +3,9 @@ using TechnicalTestApp.Models;
 
 namespace TechnicalTestApp.Database
 {
+    /// <summary>
+    /// EF Core DbContext file, implements an associated interface to follow IOC and allow mocking
+    /// </summary>
     public class DatabaseContext : DbContext, IApplicationDatabaseContext
     {
         public DbSet<Invoice> Invoices { get; set; }

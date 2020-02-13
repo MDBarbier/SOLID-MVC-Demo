@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace TechnicalTestApp.Models
+﻿namespace TechnicalTestApp.Models
 {
+    /// <summary>
+    /// Representation of the Customer table from the CustomerInvoiceData database
+    /// </summary>
     public class Customer
     {
         public int CustomerId { get; set; }

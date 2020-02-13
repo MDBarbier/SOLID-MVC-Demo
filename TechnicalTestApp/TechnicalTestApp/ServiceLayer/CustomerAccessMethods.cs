@@ -6,13 +6,18 @@ using TechnicalTestApp.ViewModels;
 
 namespace TechnicalTestApp.ServiceLayer
 {
+    /// <summary>
+    /// Business logic pertaining to the Customer Model
+    /// </summary>
     public class CustomerAccessMethods : ICustomerAccessMethods
     {
         public IApplicationDatabaseContext DbContext { get; }
+        public IInvoiceAccessMethods InvoiceAccessMethods { get; }
 
         public CustomerAccessMethods(IApplicationDatabaseContext databaseContext)
         {
-            DbContext = databaseContext;            
+            DbContext = databaseContext;
+            InvoiceAccessMethods = new InvoiceAccessMethods(DbContext);
         }        
 
         public Customer GetCustomerById(int customerId)
@@ -23,19 +28,18 @@ namespace TechnicalTestApp.ServiceLayer
         public Dictionary<int, CustomerViewModel> GetCustomers()
         {
             var customers = DbContext.Customers.ToList();
-            var customerDataList = new Dictionary<int, CustomerViewModel>();
-            var invoiceAccessMethods = new InvoiceAccessMethods(DbContext);
+            var customerDataList = new Dictionary<int, CustomerViewModel>();            
 
             foreach (var customer in customers)
             {
                 var customerToAdd = new CustomerViewModel();                                
                 customerToAdd.Name = customer.Name;
                 
-                customerToAdd.MostRecentInvoiceRef = invoiceAccessMethods.GetMostRecentInvoiceRef(customer.CustomerId);
-                customerToAdd.MostRecentInvoiceAmount = invoiceAccessMethods.GetMostRecentInvoiceAmount(customer.CustomerId);
-                customerToAdd.NumberOfOutstandingInvoices = invoiceAccessMethods.GetNumberOfOutstandingInvoicesForCustomer(customer.CustomerId);
-                customerToAdd.TotalOfAllOutstandingInvoices = invoiceAccessMethods.GetAmountOwedOnInvoices(customer.CustomerId, false);
-                customerToAdd.TotalOfAllPaidInvoices = invoiceAccessMethods.GetAmountOwedOnInvoices(customer.CustomerId, true);
+                customerToAdd.MostRecentInvoiceRef = InvoiceAccessMethods.GetMostRecentInvoiceRef(customer.CustomerId);
+                customerToAdd.MostRecentInvoiceAmount = InvoiceAccessMethods.GetMostRecentInvoiceAmount(customer.CustomerId);
+                customerToAdd.NumberOfOutstandingInvoices = InvoiceAccessMethods.GetNumberOfOutstandingInvoicesForCustomer(customer.CustomerId);
+                customerToAdd.TotalOfAllOutstandingInvoices = InvoiceAccessMethods.GetAmountOwedOnInvoices(customer.CustomerId, false);
+                customerToAdd.TotalOfAllPaidInvoices = InvoiceAccessMethods.GetAmountOwedOnInvoices(customer.CustomerId, true);
 
                 customerDataList.Add(customer.CustomerId, customerToAdd);
             }

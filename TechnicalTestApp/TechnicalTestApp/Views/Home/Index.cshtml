@@ -1,19 +1,19 @@
 ﻿@model TechnicalTestApp.ViewModels.HomeViewModel
 
 @{
-    ViewData["Title"] = "Netwrix technical test app";
+    ViewData["Title"] = "Netwrix Invoice Data Application";
 }
 
 @section Scripts {
 
-    <script src="@Url.Content("~/js/HomeJQuery.js")"></script>
+    <script src="@Url.Content("~/js/Home.js")" asp-append-version="true"></script>
 }
 
 <div class="text-center mt-4 jumbotron">
-    <h1 class="display-4">Invoice Data Application</h1>
+    <h1 class="display-4">Netwrix Invoice Data Application</h1>
 </div>
 
-<partial name="~/Views/Home/_InvoiceSummaryPartial5.cshtml" />
+<partial name="~/Views/Home/_InvoiceSummaryPartial.cshtml" />
 <partial name="~/Views/Home/_CustomerInfoPartial.cshtml" />
 <partial name="~/Views/Home/_CustomerAddressModal.cshtml" />
 

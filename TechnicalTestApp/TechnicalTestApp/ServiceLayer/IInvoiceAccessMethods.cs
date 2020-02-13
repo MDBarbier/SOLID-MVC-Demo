@@ -3,6 +3,9 @@ using TechnicalTestApp.Models;
 
 namespace TechnicalTestApp.ServiceLayer
 {
+    /// <summary>
+    /// Interface for the InvoiceAccessMethods which contains business logic pertaining to the Invoice Model
+    /// </summary>
     public interface IInvoiceAccessMethods
     {
         public IApplicationDatabaseContext DbContext { get; }

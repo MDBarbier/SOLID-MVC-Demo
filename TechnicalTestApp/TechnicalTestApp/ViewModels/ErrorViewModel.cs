@@ -2,6 +2,9 @@ using System;
 
 namespace TechnicalTestApp.ViewModels
 {
+    /// <summary>
+    /// ViewModel for handling errors containing the information to be passed to the view
+    /// </summary>
     public class ErrorViewModel
     {
         public string ErrorMessage { get; set; }

@@ -2,6 +2,9 @@
 
 namespace TechnicalTestApp.ViewModels
 {
+    /// <summary>
+    /// Contains the information used by the view of the Home page
+    /// </summary>
     public class HomeViewModel
     {
         public decimal PaidInvoiceTotal { get; set; }

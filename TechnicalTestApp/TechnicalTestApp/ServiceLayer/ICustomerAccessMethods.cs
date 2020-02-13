@@ -1,13 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using TechnicalTestApp.Database;
 using TechnicalTestApp.Models;
 using TechnicalTestApp.ViewModels;
 
 namespace TechnicalTestApp.ServiceLayer
 {
+    /// <summary>
+    /// Interface for the CustomerAccessMethods which contains business logic pertaining to the Customer Model
+    /// </summary>
     public interface ICustomerAccessMethods
     {
         public IApplicationDatabaseContext DbContext { get; }

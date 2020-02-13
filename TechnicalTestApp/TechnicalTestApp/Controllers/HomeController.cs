@@ -1,12 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using System.Diagnostics;
 using TechnicalTestApp.ServiceLayer;
-using TechnicalTestApp.Database;
 using TechnicalTestApp.ViewModels;
 
 namespace TechnicalTestApp.Controllers
 {
+    /// <summary>
+    /// Main controller of the application
+    /// </summary>
     public class HomeController : Controller
     {        
         private ICustomerAccessMethods CustomerAccessMethods;

@@ -1,10 +1,12 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using TechnicalTestApp.Database;
 using TechnicalTestApp.Models;
 
 namespace TechnicalTestApp.ServiceLayer
 {
+    /// <summary>
+    /// Business logic pertaining to the Invoice Model
+    /// </summary>
     public class InvoiceAccessMethods : IInvoiceAccessMethods
     {
         public IApplicationDatabaseContext DbContext { get; }

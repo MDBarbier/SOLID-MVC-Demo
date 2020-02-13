@@ -2,6 +2,9 @@
 
 namespace TechnicalTestApp.Models
 {
+    /// <summary>
+    /// Representation of the Invoice table from the CustomerInvoiceData database
+    /// </summary>
     public class Invoice
     {
         public int InvoiceId { get; set; }

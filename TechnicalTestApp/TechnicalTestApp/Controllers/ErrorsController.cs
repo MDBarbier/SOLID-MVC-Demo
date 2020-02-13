@@ -5,6 +5,9 @@ using TechnicalTestApp.ViewModels;
 
 namespace TechnicalTestApp.Controllers
 {
+    /// <summary>
+    /// Handles application errors (when the application is running in Release mode)
+    /// </summary>
     public class ErrorsController : Controller
     {
         [Route("Error/{statusCode}")]
