@@ -20,6 +20,8 @@ Following seperation of concerns principle the project components have been spli
 - ServiceLayer: contains the business logic pertaining to the data classes, and the associated interfaces
 - ViewModels: contains composite models as required by Views
 - Views: contains razor view files
+- wwwroot/css: stylesheets for the application
+- wwwroot/js: stylesheets for the application
 
 ## IOC
 
