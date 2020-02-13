@@ -21,7 +21,7 @@ Following seperation of concerns principle the project components have been spli
 - ViewModels: contains composite models as required by Views
 - Views: contains razor view files
 - wwwroot/css: stylesheets for the application
-- wwwroot/js: stylesheets for the application
+- wwwroot/js: javascript files for the application
 
 ## IOC
 
