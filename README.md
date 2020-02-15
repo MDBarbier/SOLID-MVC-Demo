@@ -1,5 +1,14 @@
 # NetwrixTechnicalTest
 
+## Changelist
+
+v1.1
+	- Processing time for 110,000 invoices across 750 customers has reduced to approx 2 seconds (down from over 60 seconds, a ~98% performance improvement)
+	- Implemented in-memory caching of data and multithreaded processing of said data to improve performance
+	- Switched from IQueryable to Dictionary to improve performance
+	- Implemented use of "AsNoTracking" on read-only database access methods to improve performance
+	- Implemented a Seeding program to test large volumes of data in the database
+
 ## Overview
 
 ASP.NET MVC project for the Netwrix technical test, which displays Customer and Invoice data.

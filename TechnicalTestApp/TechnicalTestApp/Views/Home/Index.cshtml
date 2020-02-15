@@ -9,6 +9,8 @@
     <script src="@Url.Content("~/js/Home.js")" asp-append-version="true"></script>
 }
 
+<div><p class="text-sm-right">Page load time: @Model.LoadingTime ms</p></div>
+
 <div class="text-center mt-4 jumbotron">
     <h1 class="display-4">Netwrix Invoice Data Application</h1>
 </div>
@@ -16,4 +18,3 @@
 <partial name="~/Views/Home/_InvoiceSummaryPartial.cshtml" />
 <partial name="~/Views/Home/_CustomerInfoPartial.cshtml" />
 <partial name="~/Views/Home/_CustomerAddressModal.cshtml" />
-

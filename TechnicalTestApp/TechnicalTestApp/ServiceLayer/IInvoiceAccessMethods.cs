@@ -1,4 +1,5 @@
-﻿using TechnicalTestApp.Database;
+﻿using System.Collections.Generic;
+using TechnicalTestApp.Database;
 using TechnicalTestApp.Models;
 
 namespace TechnicalTestApp.ServiceLayer
@@ -16,15 +17,7 @@ namespace TechnicalTestApp.ServiceLayer
 
         public abstract decimal GetTotalFundsInvoiced();
 
-        public abstract long GetNumberOfOutstandingInvoicesForCustomer(int customerId);
-
-        public abstract decimal GetAmountOwedOnInvoices(int customerId);
-
-        public abstract decimal GetAmountPaidOnInvoices(int customerId);
-
-        public abstract int GetMostRecentInvoiceRef(int customerId);
-
-        public abstract decimal GetMostRecentInvoiceAmount(int customerId);
+        public abstract Dictionary<int, Invoice> GetAllInvoices();        
 
     }
 }

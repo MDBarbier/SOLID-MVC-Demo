@@ -14,6 +14,7 @@ namespace TechnicalTestApp.ServiceLayer
 
         public abstract Customer GetCustomerById(int customerId);
 
-        public abstract Dictionary<int, CustomerViewModel> GetCustomers();
+        public abstract Dictionary<int, Customer> GetAllCustomers();
+        
     }
 }

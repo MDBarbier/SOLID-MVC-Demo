@@ -17,7 +17,7 @@ namespace TechnicalTestApp.Controllers
     {
         private CustomerAccessMethods CustomerAccessMethods;
 
-        public CustomerAddressController(IApplicationDatabaseContext databaseContext, IInvoiceAccessMethods invoiceAccessMethods)
+        public CustomerAddressController(IApplicationDatabaseContext databaseContext)
         {
             CustomerAccessMethods = new CustomerAccessMethods(databaseContext);
         }

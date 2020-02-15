@@ -10,5 +10,6 @@ namespace TechnicalTestApp.ViewModels
         public decimal PaidInvoiceTotal { get; set; }
         public long TotalPaidInvoiceCount { get; set; }
         public Dictionary<int, CustomerViewModel> Customers { get; set; }
+        public long LoadingTime { get; set; }
     }
 }

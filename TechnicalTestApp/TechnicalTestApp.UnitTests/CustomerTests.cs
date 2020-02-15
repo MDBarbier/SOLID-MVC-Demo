@@ -54,7 +54,7 @@ namespace TechnicalTestApp.UnitTests
             var customerService = new CustomerAccessMethods(mockContext.Object);
 
             //Act
-            var customer = customerService.GetCustomers();
+            var customer = customerService.GetAllCustomers();
 
             //Assert
             customer.Count.Should().Be(1);

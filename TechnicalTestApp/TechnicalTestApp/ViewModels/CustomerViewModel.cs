@@ -1,4 +1,7 @@
-﻿namespace TechnicalTestApp.ViewModels
+﻿using System.Collections.Generic;
+using TechnicalTestApp.Models;
+
+namespace TechnicalTestApp.ViewModels
 {
     /// <summary>
     /// ViewModel providing the information required in the application GUI for Customers, some of which is calculated from other sources
@@ -11,6 +14,6 @@
         public decimal MostRecentInvoiceAmount { get; set; }
         public decimal TotalOfAllOutstandingInvoices { get; set; }
         public decimal TotalOfAllPaidInvoices { get; set; }
-        public long NumberOfOutstandingInvoices { get; set; }
+        public long NumberOfOutstandingInvoices { get; set; }        
     }
 }
